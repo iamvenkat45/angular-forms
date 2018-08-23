@@ -1,0 +1,21 @@
+<form (ngSubmit)="onSubmit()">
+  <div [formGroup]="signInForm">
+    <div formGroupName="userName">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" name="firstName" formControlName="firstName" class="form-control w-50" />
+        <span class="help-block" *ngIf="signInForm.get('userName.firstName').errors?.required && signInForm.get('userName.firstName').dirty">This is required</span>
+        <span class="help-block" *ngIf="signInForm.get('userName.firstName').errors?.minlength">Minimum 3 chanrs is required</span>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" name="lastName" formControlName="lastName" class="form-control w-50" />
+      </div>
+    </div>
+    <div class="form-group">
+        <label>Age</label>
+        <input type="text" name="age" formControlName="age" class="form-control w-50" />
+      </div>
+  </div>
+  <input type="submit" value="Submit" class="btn btn-primary" />
+</form>

@@ -1,0 +1,33 @@
+<div class="container">
+  <form class="form" [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" name="firstName" class="form-control w-50" formControlName="firstName">
+    </div>
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" name="lastName" class="form-control w-50" formControlName="lastName">
+    </div>
+    <div class="form-group">
+      <label>Age</label>
+      <input type="text" name="age" class="form-control w-50" formControlName="age">
+    </div>
+    <div class="form-group">
+      <div>
+        <label>
+          <input type="radio" name="gender" value="male" formControlName="gender" /> Male
+        </label>
+        <label>
+          <input type="radio" name="gender" value="female" formControlName="gender" /> Female
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <select name="profession" class="form-control w-50" formControlName="profession">
+        <option *ngFor="let profession of professions" [value]="profession">{{profession}}</option>
+      </select>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">submit</button>
+  </form>
+</div>
+<app-users-list [usersList]="usersList"></app-users-list>
